@@ -39,10 +39,12 @@ I'm not sure of the validation of other fields at this time, nor their max lengt
 The component needs to generate at least 3 views.
 
 1) a *last Observed* listing of every comet observed and should be filterable.  Sortable by date or comet is important.  Might be nice to have a *total* column for the count of all observations of that comet
+![last observed](https://cloud.githubusercontent.com/assets/1850089/14944082/3776b03c-0faf-11e6-8c4f-285ee5bb141c.JPG)
 
 2) a listing of each observation by comet.
-
+![single comet observations list](https://cloud.githubusercontent.com/assets/1850089/14944083/3779a0c6-0faf-11e6-8af2-bcdb3c76fb0d.JPG)
 3) Single entry view with full size image.
+- no current ability - 
 
 ability to have a gallery of observation images might be nice with link back or modal to the entry.
 
