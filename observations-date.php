@@ -75,13 +75,15 @@ if (($handle = fopen("comets-seen.csv", "r")) !== FALSE) {
 			$timestamp = "Timestamp";
 		}
 
-		/* create single row of data */
-		$rawrow = $record . "|" . $timestamp . "|" . $person . "|" . $place . "|" . $desg . "|" . $date . "|" . $m1 . "|" . $diam . "|" . $dc . "|" . $pa . "|" . $scope . "|" . $comments . "|" . $url . PHP_EOL;
+		/* create single row of data
+		 * use ~ as temporary field delimitter
+		*/
+		$rawrow = $record . '_~_' . $timestamp . '_~_' . $person . '_~_' . $place . '_~_' . $desg . '_~_' . $date . '_~_' . $m1 . '_~_' . $diam . '_~_' . $dc . '_~_' . $pa . '_~_' . $scope . '_~_' . $comments . '_~_' . $url;
 		/* look for " inside the data and escape it with csv ""
 		 * We might be able to git rid of this as I had to strip the "" and change it to "
 		 * in the sql output created by http://www.convertcsv.com/csv-to-sql.htm
 		 */
-		$cleanrow = str_replace('"', '""', $rawrow);
+		$cleanrow = '"' . str_replace('_~_', '","',str_replace('"', '""', $rawrow)) . '"' . PHP_EOL;
 
 		/* now that we have a import safe row lets add it to the dataset */
 		$siting .= $cleanrow;
