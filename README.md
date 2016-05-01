@@ -40,6 +40,7 @@ The component needs to generate at least 3 views.
 
 2) a listing of each observation by comet.
 ![single comet observations list](https://cloud.githubusercontent.com/assets/1850089/14944083/3779a0c6-0faf-11e6-8af2-bcdb3c76fb0d.JPG)
+
 3) Single entry view with full size image.
 - no current ability - 
 
@@ -63,4 +64,4 @@ ASO provides a lot of important data back to major centers like Harvard and Mino
 them be strong once again.
 
 
-*would this be better as a chronofrom device?*
+*would this be better as a chronoform device?*
