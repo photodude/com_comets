@@ -8,19 +8,10 @@
  */
 
 // No direct access
-defined('_JEXEC') or die;
-
-// Access check.
-if (!JFactory::getUser()->authorise('core.manage', 'com_comets'))
+defined('_JEXEC') or die();
+// Load FOF
+if (!defined('FOF30_INCLUDED') && !@include_once(JPATH_LIBRARIES . '/fof30/include.php'))
 {
-	throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'));
+	throw new RuntimeException('FOF 3.0 is not installed', 500);
 }
-
-// Include dependancies
-jimport('joomla.application.component.controller');
-
-JLoader::registerPrefix('Comets', JPATH_COMPONENT_ADMINISTRATOR);
-
-$controller = JControllerLegacy::getInstance('Comets');
-$controller->execute(JFactory::getApplication()->input->get('task'));
-$controller->redirect();
+$container = FOF30\Container\Container::getInstance('com_comets')->dispatcher->dispatch();
