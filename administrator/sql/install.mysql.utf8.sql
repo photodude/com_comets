@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `#__comet_observations` (
 `observer_Location`      VARCHAR(255)          NOT NULL COMMENT 'physical location of the observer during the observation',
 `timestamp`              DATETIME(6)           NOT NULL DEFAULT '0000-00-00 00:00:00.000000' COMMENT 'timestamp of the observation with 6 decimal precision',
 `M1`                     VARCHAR(10)           NOT NULL COMMENT 'Total absolute magnitude',
-`M2`                     VARCHAR(10)               NULL COMMENT 'Nuclear absolute magnitude',
+`M2`                     VARCHAR(10)           NOT NULL DEFAULT '' COMMENT 'Nuclear absolute magnitude',
 `diameter`               VARCHAR(10)           NOT NULL,
 `dc`                     VARCHAR(255)          NOT NULL COMMENT 'Degree Of Condensation',
 `pa`                     VARCHAR(255)          NOT NULL COMMENT 'Position angle, the angle measured counterclockwise relative to the north celestial pole.',
@@ -35,8 +35,8 @@ KEY `idx_enabled` (`enabled`)
 CREATE TABLE IF NOT EXISTS `#__comet_designation` (
 `comet_designation_id`  BIGINT(20)   UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
 `designation`           VARCHAR(255)          NOT NULL COMMENT 'Comet designation given in a 7 or 12-character form with blanks',
-`name`                  VARCHAR(255)          NULL COMMENT 'Comet name if given',
-`discription`           VARCHAR(255)          NULL COMMENT 'General discription of Comet',
+`name`                  VARCHAR(255)          NOT NULL DEFAULT '' COMMENT 'Comet name if given',
+`discription`           VARCHAR(255)          NOT NULL DEFAULT '' COMMENT 'General discription of Comet',
 
 `access`                BIGINT(20)            NOT NULL DEFAULT '0',
 `enabled`               TINYINT(1)            NOT NULL DEFAULT '1',
